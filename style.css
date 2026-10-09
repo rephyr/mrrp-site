@@ -288,7 +288,6 @@ body[data-tod="night"] .house-cat .zzz { font-size: 1.6rem; animation-duration: 
   .house-cat { left: auto; right: 6px; translate: none; width: 132px; }
   .ledge { height: 104px; }
   .tally { position: absolute; right: calc(var(--gutter) + var(--frame-w)); top: -.4rem; margin: 0; max-width: none; text-align: right; }
-  .house-cat { width: 140px; }
   .house-cat .bubble { left: 46%; }
   .house-cat .zzz { left: -30%; top: 6%; }
   .sky { top: 3.6rem; width: 40px; height: 40px; }
