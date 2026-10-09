@@ -3,89 +3,235 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mrrp — tiny cat-powered game studio</title>
-  <meta name="description" content="Mrrp is a tiny indie studio making cosy, slightly chaotic games: Cats in a Trenchcoat, A Game About Brushing a Cat and Judge Kitty.">
-  <meta name="theme-color" content="#140e1b">
-  <meta property="og:title" content="Mrrp — tiny cat-powered game studio">
-  <meta property="og:description" content="Cosy, slightly chaotic games. Mostly about cats.">
+  <title>Mrrp · cat café &amp; game studio</title>
+  <meta name="description" content="Mrrp is a tiny game studio that runs like a late-night cat café. On the menu: Cats in a Trenchcoat, A Game About Brushing a Cat and Judge Kitty.">
+  <meta name="theme-color" content="#211b29">
+  <meta property="og:title" content="Mrrp · cat café &amp; game studio">
+  <meta property="og:description" content="Small, cosy, slightly chaotic games. Mostly about cats.">
   <meta property="og:image" content="https://mrrp.games/img/coat-bust.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/coiny-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
-<body>
-  <header class="top">
-    <a class="brand" href="#">
-      <svg class="paw" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="42" rx="14" ry="12"/><ellipse cx="14" cy="27" rx="6" ry="8"/><ellipse cx="26" cy="17" rx="6" ry="8"/><ellipse cx="38" cy="17" rx="6" ry="8"/><ellipse cx="50" cy="27" rx="6" ry="8"/></svg>
-      Mrrp
-    </a>
-    <nav><a href="#games">Games</a><a href="#contact">Contact</a></nav>
-  </header>
+<body data-tod="night">
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <symbol id="tinycat" viewBox="0 0 40 32">
+      <path d="M6 30c-3 0-4-3-2-5 2-3 3-6 3-10 0-3-1-6 0-9l4 4c3-1 7-1 10 0l4-4c1 3 0 6 0 9 0 2 1 4 3 5 3-1 6 0 6 3s-3 4-6 4H6z" fill="currentColor"/>
+    </symbol>
+  </svg>
 
-  <main>
-    <section class="hero">
-      <p class="chirp">mrrp?</p>
-      <h1>Tiny games.<br><span>Big cat energy.</span></h1>
-      <p class="lede">Mrrp is a tiny indie studio making cosy, slightly chaotic games. Mostly about cats. We are not sorry.</p>
-      <a class="btn" href="#games">See the games</a>
+  <a class="skip" href="#specials">Skip to the games</a>
+
+  <div class="board">
+    <header class="bar">
+      <a class="mark" href="#top" aria-label="Mrrp, home">
+        <svg viewBox="0 0 40 32" aria-hidden="true"><use href="#tinycat"/></svg>
+        <span>Mrrp</span>
+      </a>
+      <nav aria-label="Main">
+        <a href="#specials">Specials</a>
+        <a href="#press">Press</a>
+        <a href="#say-mrrp">Say mrrp</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title" class="wordmark">Mrrp</h1>
+        <p class="sub">cat café &amp; game studio</p>
+        <p class="intro">We make small, cosy, slightly chaotic games. Mostly about cats. Pull up a chair; the specials are on the board.</p>
+        <p class="clock"><svg class="clock-icon icon-cup" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 14h15v6a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6zM22 16h2a3 3 0 0 1 0 6h-2M11 10c0-2 2-2 2-4M16 10c0-2 2-2 2-4"/></svg><svg class="clock-icon icon-moon" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 6a11 11 0 1 0 7 17A9 9 0 0 1 20 6z"/></svg><span data-clock>It's late where you are. We're open.</span></p>
+        <div class="actions">
+          <a class="btn btn-fill" href="#specials">See today's specials</a>
+          <a class="btn btn-line" href="#say-mrrp">Say mrrp</a>
+        </div>
+        <button class="hidden-cat" data-cat="1" aria-label="A cat is hiding here"><svg viewBox="0 0 40 32"><use href="#tinycat"/></svg></button>
+      </div>
+
+      <p class="ghost" aria-hidden="true">soup of the day: tuna</p>
+      <svg class="sky sky-moon" viewBox="0 0 64 64" aria-hidden="true"><path d="M40 10a22 22 0 1 0 14 34A18 18 0 0 1 40 10z"/><path class="star" d="M14 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg>
+      <svg class="sky sky-sun" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="11"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M15 49l6-6M43 21l6-6"/></svg>
+      <div class="menu" aria-labelledby="menu-title">
+        <h2 id="menu-title" class="menu-title">Today's specials</h2>
+        <svg class="swash" viewBox="0 0 300 18" aria-hidden="true"><path d="M4 12c40-8 90-10 140-6s100 6 152-4" /></svg>
+        <ol class="menu-list">
+          <li>
+            <a href="#trenchcoat" class="menu-item">
+              <figure class="polaroid tilt-l"><span class="tape tape-pink"></span><img src="img/coat-menu.webp" alt="" width="800" height="926"></figure>
+              <span class="menu-text">
+                <span class="menu-name">Cats in a Trenchcoat</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="menu-price">2–4 friends</span>
+                <span class="menu-desc">One coat. Be a normal human adult.</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#brushing" class="menu-item">
+              <figure class="polaroid tilt-r"><span class="tape tape-mint"></span><img src="img/cat-brushing.webp" alt="" width="900" height="575"></figure>
+              <span class="menu-text">
+                <span class="menu-name">A Game About Brushing a Cat</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="menu-price">1 cat → all cats</span>
+                <span class="menu-desc">Then knit the planet a sweater.</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#judge-kitty" class="menu-item">
+              <figure class="polaroid tilt-l2"><span class="tape tape-lilac"></span><img src="img/kitty-lobby.webp" alt="" width="1280" height="720"></figure>
+              <span class="menu-text">
+                <span class="menu-name">Judge Kitty</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="menu-price">free</span>
+                <span class="menu-desc">A tiny cat in a wig decides your fate.</span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section id="games" class="games">
-      <article class="game">
-        <div class="shots">
-          <img src="img/coat-bust.webp" alt="Three cats burst out of a trenchcoat in a night-time grocery store" loading="lazy">
-          <img src="img/coat-kitchen.webp" alt="Grandma's kitchen with a fridge calendar and receipts" loading="lazy">
-          <img src="img/coat-bank.webp" alt="The cats in a trenchcoat queueing at a moody old bank" loading="lazy">
-        </div>
-        <div class="info">
-          <p class="tag">Online co-op · 2–4 players</p>
-          <h2>Cats in a Trenchcoat</h2>
-          <p class="pitch">2–4 friends. 1 coat. Be a normal human adult.</p>
-          <p>Grandma's in the care home, the electric bill is overdue and the fridge is empty. Each of you controls one cat in a wobbly stack. Do the shopping, pay the bills and get a job before anyone notices that Mr Coat is three cats.</p>
-          <span class="soon">Free Prologue coming to Steam</span>
-        </div>
-      </article>
+    <div class="ledge">
+      <svg class="chalk-sticks" viewBox="0 0 300 54" aria-hidden="true">
+        <ellipse cx="120" cy="47" rx="96" ry="5" fill="#f2e8dc" opacity=".14"/>
+        <g stroke="#2a1d33" stroke-opacity=".25" stroke-width="2">
+          <rect x="14" y="30" width="78" height="15" rx="7" fill="#f2e8dc"/>
+          <rect x="102" y="31" width="50" height="14" rx="7" fill="#f6a6c8"/>
+          <rect x="138" y="14" width="62" height="13" rx="6.5" fill="#9fe0c9" transform="rotate(-14 169 20)"/>
+        </g>
+        <path d="M92 33c-3 2-3 9 0 11" fill="none" stroke="#2a1d33" stroke-opacity=".2" stroke-width="2"/>
+        <rect x="214" y="18" width="74" height="28" rx="5" fill="#6b5070"/>
+        <rect x="214" y="36" width="74" height="10" rx="3" fill="#c9bfa8"/>
+        <path d="M222 41h58" stroke="#a89e86" stroke-width="2" stroke-dasharray="3 4"/>
+      </svg>
+      <button class="house-cat" data-housecat aria-label="Pet the café cat">
+        <svg viewBox="0 0 220 120" aria-hidden="true">
+          <g fill="none" stroke="#f2e8dc" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <g class="tail"><path d="M172 92c22-2 36-14 34-30-1-10-9-14-15-9" stroke="#a597c4" stroke-width="13"/><path d="M172 85c19-3 30-13 28-25"/></g>
+            <path d="M40 104c-6-30 14-58 60-62 34-3 66 6 76 30 6 16 0 32-14 36H52c-8 0-11-1-12-4z" fill="#a597c4"/>
+            <path d="M100 56c8 5 11 13 8 20M122 54c7 6 9 14 5 21M143 60c6 6 6 14 1 19" stroke="#8a7ca8" stroke-width="5"/>
+            <g class="head">
+              <path d="M22 72l4-36 22 19M76 55l14-29 6 36" fill="#a597c4"/>
+              <path d="M29 47l1-5 8 7M85 41l3-6 2 11" stroke="#f6a6c8" stroke-width="4"/>
+              <ellipse cx="56" cy="78" rx="40" ry="32" fill="#a597c4"/>
+              <g class="eyes-closed" stroke="#2a1d33" stroke-width="3.6"><path d="M34 78c4 4 10 4 14 0"/><path d="M64 78c4 4 10 4 14 0"/></g>
+              <g class="eyes-open" stroke="none"><ellipse cx="41" cy="76" rx="7" ry="8" fill="#2a1d33"/><ellipse cx="71" cy="76" rx="7" ry="8" fill="#2a1d33"/><circle cx="43" cy="73" r="2.4" fill="#f2e8dc"/><circle cx="73" cy="73" r="2.4" fill="#f2e8dc"/></g>
+              <path d="M52 88l4 3 4-3" stroke="#2a1d33" stroke-width="3"/>
+              <g class="nightcap"><path d="M30 52c10-26 34-32 52-20-12 4-20 12-24 24z" fill="#c9b6ff"/><path d="M30 52c14-4 26-2 30 4" stroke-width="4"/><circle cx="84" cy="32" r="6" fill="#f2e8dc" stroke="none"/></g>
+            </g>
+            <ellipse class="paw" cx="86" cy="108" rx="13" ry="7" fill="#b7aad3"/>
+          </g>
+        </svg>
+        <span class="zzz" aria-hidden="true">z z z</span>
+        <span class="bubble chalk-hand" data-bubble aria-hidden="true">mrrp?</span>
+      </button>
+      <p class="tally chalk-hand"><span class="sr-only">Hidden cats found: </span><span data-found>0</span> / 5 hidden cats spotted</p>
+    </div>
 
-      <article class="game flip">
-        <div class="shots">
-          <img src="img/cat-rainbow.webp" alt="A knitted rainbow over a town covered in cats and yarn" loading="lazy">
-          <img src="img/cat-room.webp" alt="A cosy room filling up with brushed fur and many cats" loading="lazy">
-          <img src="img/cat-planet.webp" alt="The whole planet wearing a fair-isle sweater" loading="lazy">
+  <main id="specials" class="specials">
+    <article class="special" id="trenchcoat" aria-labelledby="t-title">
+      <div class="special-head">
+        <h2 id="t-title">Cats in a Trenchcoat <span class="title-price">co-op chaos</span></h2>
+        <p class="pitch">2–4 friends. 1 coat. Be a normal human adult.</p>
+      </div>
+      <div class="special-body">
+        <div class="pinboard pinboard-3">
+          <p class="chalk-note note-coat" aria-hidden="true"><svg viewBox="0 0 80 58"><path d="M72 6c-14 10-34 26-56 46M16 52l1-13M16 52l13 0"/></svg><span>that's three cats</span></p>
+          <figure class="polaroid big tilt-l"><span class="tape tape-pink"></span><img src="img/coat-bust.webp" alt="Three cats burst out of their trenchcoat in a night-time grocery store while the captions read MRRROWW and I PAID FOR NONE OF THIS" width="1280" height="562" loading="lazy"><figcaption>busted at the night grocery</figcaption></figure>
+          <figure class="polaroid tilt-r"><span class="tape tape-mint"></span><img src="img/coat-kitchen.webp" alt="Grandma's kitchen: a fridge calendar of errands, a paid electric bill and pinned receipts" width="1280" height="720" loading="lazy"><figcaption>grandma's fridge</figcaption></figure>
+          <figure class="polaroid tilt-l2"><span class="tape tape-lilac"></span><img src="img/coat-bank.webp" alt="The cats in a trenchcoat queueing in a moody old bank with a vault door" width="1280" height="720" loading="lazy"><figcaption>queueing at the bank</figcaption></figure>
         </div>
-        <div class="info">
-          <p class="tag">Incremental · single player</p>
-          <h2>A Game About Brushing a Cat</h2>
-          <p class="pitch">Brush a cat. Then every cat. Then knit the planet a sweater.</p>
-          <p>Fur piles up for real. Collect breeds, evolve your brush from a comb to an orbital satellite, and keep going until the whole world is cosy.</p>
-          <span class="soon">Coming to Steam</span>
+        <div class="special-copy">
+          <p>Grandma's in the care home, the electric bill is overdue and the fridge is empty. Each of you controls one cat in a wobbly stack: legs, arms or head. Do the shopping, pay the bills and get a job, all before anyone notices that Mr Coat is three cats.</p>
+          <dl class="ingredients">
+            <div><dt>Players</dt><dd>2–4, online co-op</dd></div>
+            <div><dt>Where</dt><dd>Steam (PC)</dd></div>
+            <div><dt>Status</dt><dd>Free Prologue in the oven</dd></div>
+          </dl>
+          <span class="btn btn-soon" role="note">Wishlist on Steam · page coming soon</span>
         </div>
-      </article>
+      </div>
+      <button class="hidden-cat" data-cat="2" aria-label="A cat is hiding here"><svg viewBox="0 0 40 32"><use href="#tinycat"/></svg></button>
+    </article>
+    <svg class="divider" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14c50-9 96 7 150 0s100-8 150-1 98 8 148 1 100-8 144-2"/></svg>
 
-      <article class="game">
-        <div class="shots one">
-          <img src="img/kitty-guilty.webp" alt="Judge Kitty in a white wig stamping GUILTY in a cat courtroom" loading="lazy">
+    <article class="special flip" id="brushing" aria-labelledby="b-title">
+      <div class="special-head">
+        <h2 id="b-title">A Game About Brushing a Cat <span class="title-price">cosy idle</span></h2>
+        <p class="pitch">Brush a cat. Then every cat. Then knit the planet a sweater.</p>
+      </div>
+      <div class="special-body">
+        <div class="pinboard pinboard-3 alt">
+          <p class="chalk-note note-yarn" aria-hidden="true"><span>all of it is fur</span><svg viewBox="0 0 80 58"><path d="M8 6c14 10 34 26 56 46M64 52l-1-13M64 52l-13 0"/></svg></p>
+          <figure class="polaroid big tilt-r"><span class="tape tape-lilac"></span><img src="img/cat-rainbow.webp" alt="A knitted rainbow arching over a town covered in cats, yarn and fur clouds" width="1280" height="720" loading="lazy"><figcaption>the yarn rainbow</figcaption></figure>
+          <figure class="polaroid tilt-l"><span class="tape tape-pink"></span><img src="img/cat-room.webp" alt="A cosy room filling up with brushed fur and a crowd of cats" width="1280" height="720" loading="lazy"><figcaption>the fur gets real</figcaption></figure>
+          <figure class="polaroid tilt-r2"><span class="tape tape-mint"></span><img src="img/cat-planet.webp" alt="The whole planet wearing a striped fair-isle sweater" width="1280" height="720" loading="lazy"><figcaption>one cosy planet</figcaption></figure>
         </div>
-        <div class="info">
-          <p class="tag">Free party game · 3–8 players</p>
-          <h2>Judge Kitty</h2>
-          <p class="pitch">A tiny cat in a judge's wig decides your fate.</p>
-          <p>Write your defence on your phone. Kitty reads it, considers it, and slowly pushes your evidence off the bench.</p>
-          <span class="soon">Coming soon</span>
+        <div class="special-copy">
+          <p>Fur piles up for real. Collect breeds, upgrade your brush from a comb to an orbital satellite, and keep brushing until the street, the town and finally the whole world is wrapped in something knitted.</p>
+          <dl class="ingredients">
+            <div><dt>Players</dt><dd>1, incremental</dd></div>
+            <div><dt>Where</dt><dd>Steam (PC)</dd></div>
+            <div><dt>Status</dt><dd>Brushing in progress</dd></div>
+          </dl>
+          <span class="btn btn-soon" role="note">Wishlist on Steam · page coming soon</span>
         </div>
-      </article>
-    </section>
+      </div>
+      <button class="hidden-cat" data-cat="3" aria-label="A cat is hiding here"><svg viewBox="0 0 40 32"><use href="#tinycat"/></svg></button>
+    </article>
+    <svg class="divider" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14c50-9 96 7 150 0s100-8 150-1 98 8 148 1 100-8 144-2"/></svg>
 
-    <section id="contact" class="contact">
-      <h2>Say mrrp</h2>
-      <p>Press, streamers, or just want to say hi?</p>
-      <a class="btn" href="mailto:hello@mrrp.games">hello@mrrp.games</a>
+    <article class="special" id="judge-kitty" aria-labelledby="k-title">
+      <div class="special-head">
+        <h2 id="k-title">Judge Kitty <span class="title-price">party game</span></h2>
+        <p class="pitch">A tiny cat in a judge's wig decides your fate.</p>
+      </div>
+      <div class="special-body">
+        <div class="pinboard pinboard-1">
+          <p class="chalk-note note-kitty" aria-hidden="true"><svg viewBox="0 0 80 58"><path d="M72 6c-14 10-34 26-56 46M16 52l1-13M16 52l13 0"/></svg><span>she means it</span></p>
+          <figure class="polaroid big tilt-l"><span class="tape tape-mint"></span><img src="img/kitty-guilty.webp" alt="Judge Kitty in a curly white wig behind the bench, a red GUILTY stamp across the scene" width="1280" height="720" loading="lazy"><figcaption>the court finds you guilty</figcaption></figure>
+        </div>
+        <div class="special-copy">
+          <p>Everyone gets the same absurd case. Write your defence on your phone. Kitty reads it, considers it carefully, and then slowly pushes your evidence off the bench.</p>
+          <dl class="ingredients">
+            <div><dt>Players</dt><dd>3–8, party game</dd></div>
+            <div><dt>Where</dt><dd>Browser and Discord</dd></div>
+            <div><dt>Status</dt><dd>Free, court opens soon</dd></div>
+          </dl>
+          <span class="btn btn-soon" role="note">Play free · coming soon</span>
+        </div>
+      </div>
+      <button class="hidden-cat" data-cat="4" aria-label="A cat is hiding here"><svg viewBox="0 0 40 32"><use href="#tinycat"/></svg></button>
+    </article>
+
+    <section class="notes" id="press" aria-labelledby="press-title">
+      <div class="note">
+        <span class="tape tape-pink"></span>
+        <h2 id="press-title" class="note-title">Notes for press &amp; streamers</h2>
+        <ul>
+          <li>Mrrp is a tiny game studio from Finland.</li>
+          <li>Three games on the menu, all mostly about cats.</li>
+          <li>Want to play early, cover a game or stream it? Write to us and we'll sort you out.</li>
+        </ul>
+        <a class="note-mail" href="mailto:hello@mrrp.games">hello@mrrp.games</a>
+        <button class="hidden-cat" data-cat="5" aria-label="A cat is hiding here"><svg viewBox="0 0 40 32"><use href="#tinycat"/></svg></button>
+      </div>
     </section>
   </main>
+  </div>
 
-  <footer>
-    <p>© 2026 Mrrp Software · Made in Finland with too many cats</p>
+  <footer class="counter" id="say-mrrp">
+    <div class="counter-inner">
+      <h2 class="counter-title">Say mrrp</h2>
+      <p>Questions, keys, collaborations or just a cat photo. The counter is always open.</p>
+      <a class="btn btn-fill" href="mailto:hello@mrrp.games">hello@mrrp.games</a>
+      <p class="legal">Mrrp Software · Finland · <span data-year>2026</span></p>
+    </div>
   </footer>
+
+  <div class="toast chalk-hand" data-toast role="status" aria-live="polite"></div>
 </body>
 </html>

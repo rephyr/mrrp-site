@@ -1,0 +1,5 @@
+/* Self-hosted Latin subsets from Google Fonts (SIL Open Font License). Paths are relative to this file. */
+@font-face { font-family: "Coiny"; font-style: normal; font-weight: 400; font-display: swap; src: url("coiny-400.woff2") format("woff2"); }
+@font-face { font-family: "Gaegu"; font-style: normal; font-weight: 400; font-display: swap; src: url("gaegu-400.woff2") format("woff2"); }
+@font-face { font-family: "Gaegu"; font-style: normal; font-weight: 700; font-display: swap; src: url("gaegu-700.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 400 800; font-display: swap; src: url("nunito-var.woff2") format("woff2"); }
